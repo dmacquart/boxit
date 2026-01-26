@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            // TODO: Replace with your Ema
-            ilJS Public Key
+            // EmailJS Public Key - FIXED
             emailjs.init("KS-ESZeWPvZfyRjD3");
         })();
     </script>
@@ -1056,7 +1054,7 @@
             
             console.log('📦 Submitting booking:', orderNum);
             
-            // Configuration - TODO: Replace these with your EmailJS values
+            // Configuration - YOUR ACTUAL VALUES
             const EMAILJS_SERVICE_ID = 'service_0itemk3';
             const EMAILJS_CUSTOMER_TEMPLATE = 'template_83v9n1j';
             const EMAILJS_ADMIN_TEMPLATE = 'template_o9x71qe';
@@ -1083,27 +1081,25 @@
                 alert('Your booking was received, but we had trouble sending the confirmation email. We\'ll contact you within 24 hours at ' + formData.email);
             }
             
-            // 3. Save to Google Sheets (optional, won't block if it fails)
-            if (SHEET_BEST_URL !== 'https://api.sheetbest.com/sheets/de5fa28b-e902-41fb-888c-de2110ddfbbc') {
-                try {
-                    console.log('📊 Saving to Google Sheets...');
-                    const response = await fetch(SHEET_BEST_URL, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(bookingData)
-                    });
-                    
-                    if (response.ok) {
-                        sheetSaved = true;
-                        console.log('✅ Booking saved to Google Sheets');
-                    } else {
-                        console.warn('⚠️ Google Sheets error:', response.status);
-                    }
-                } catch (error) {
-                    console.warn('⚠️ Could not save to Google Sheets:', error);
+            // 3. Save to Google Sheets - FIXED LOGIC
+            try {
+                console.log('📊 Saving to Google Sheets...');
+                const response = await fetch(SHEET_BEST_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+                
+                if (response.ok) {
+                    sheetSaved = true;
+                    console.log('✅ Booking saved to Google Sheets');
+                } else {
+                    console.warn('⚠️ Google Sheets error:', response.status);
                 }
+            } catch (error) {
+                console.warn('⚠️ Could not save to Google Sheets:', error);
             }
             
             // Update success page
@@ -1119,7 +1115,7 @@
             // Log summary
             console.log('✨ Booking complete!');
             console.log(`   Emails sent: ${emailsSent}/2`);
-            console.log(`   Google Sheets: ${sheetSaved ? 'Saved' : 'Not configured or failed'}`);
+            console.log(`   Google Sheets: ${sheetSaved ? 'Saved' : 'Failed'}`);
         }
     </script>
 </body>

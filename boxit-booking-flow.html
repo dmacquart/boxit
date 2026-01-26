@@ -1085,7 +1085,7 @@ body: JSON.stringify({ data: [bookingData] })  // Array wrapper required
             // 3. Save to Google Sheets - FIXED LOGIC
             try {
                 console.log('📊 Saving to Google Sheets...');
-                const response = await fetch(SHEET_BEST_URL, {
+                const response = await fetch(SHEETDB_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

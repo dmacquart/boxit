@@ -7,21 +7,28 @@
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
   
   <style>
     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
       font-family: 'DM Sans', sans-serif;
+    }
+    
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #f8fafc, rgba(239, 246, 255, 0.4), rgba(250, 245, 255, 0.3));
     }
     
     .headline {
-      font-family: 'DM Sans', sans-serif;
       font-weight: 700;
     }
     
+    /* Animations */
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
@@ -53,11 +60,297 @@
     .delay-200 { animation-delay: 0.2s; }
     .delay-300 { animation-delay: 0.3s; }
     .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    .delay-600 { animation-delay: 0.6s; }
     
+    /* Glass card effect */
     .glass-card {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+    }
+    
+    nav .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    nav img {
+      height: 2.5rem;
+      opacity: 0;
+    }
+    
+    /* Buttons */
+    .btn {
+      padding: 0.625rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background: #7CB9E8;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #6AA8D6;
+      transform: scale(1.05);
+    }
+    
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    
+    .btn-xl {
+      padding: 1.25rem 3rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    .btn-white {
+      background: white;
+      color: #334155;
+    }
+    
+    .btn-white:hover {
+      background: #f8fafc;
+      transform: scale(1.05);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 1.5rem 5rem;
+    }
+    
+    .hero .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+      opacity: 0;
+    }
+    
+    .hero h1 .accent {
+      color: #7CB9E8;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: #475569;
+      line-height: 1.75;
+      opacity: 0;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      opacity: 0;
+    }
+    
+    .hero-buttons a, .hero-buttons button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-image {
+      position: relative;
+      opacity: 0;
+    }
+    
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, #A0D2F0, #7CB9E8);
+      border-radius: 1.5rem;
+      filter: blur(48px);
+      opacity: 0.15;
+    }
+    
+    .hero-image img {
+      position: relative;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      width: 100%;
+      height: auto;
+    }
+    
+    /* How It Works Section */
+    .how-it-works {
+      padding: 5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
+    .how-it-works .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .how-it-works h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 4rem;
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .step-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: all 0.3s;
+      opacity: 0;
+    }
+    
+    .step-card:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .step-icon svg {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+    
+    .step-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+    
+    .step-card p {
+      color: #475569;
+      line-height: 1.625;
+    }
+    
+    /* Calculator Section */
+    .calculator {
+      padding: 5rem 1.5rem;
+    }
+    
+    .calculator .container {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    
+    .calculator-card {
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    .calculator-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .calculator-header svg {
+      width: 2rem;
+      height: 2rem;
+      color: #7CB9E8;
+    }
+    
+    .calculator-header h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .calculator-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .slider-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .slider-label label {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    
+    .slider-label .count {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: #7CB9E8;
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      height: 0.75rem;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      appearance: none;
+      cursor: pointer;
     }
     
     input[type="range"]::-webkit-slider-thumb {
@@ -66,21 +359,21 @@
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #3B82F6;
+      background: #7CB9E8;
       cursor: pointer;
       transition: all 0.2s;
     }
     
     input[type="range"]::-webkit-slider-thumb:hover {
       transform: scale(1.2);
-      background: #2563EB;
+      background: #6AA8D6;
     }
     
     input[type="range"]::-moz-range-thumb {
       width: 24px;
       height: 24px;
       border-radius: 50%;
-      background: #3B82F6;
+      background: #7CB9E8;
       cursor: pointer;
       transition: all 0.2s;
       border: none;
@@ -88,7 +381,225 @@
     
     input[type="range"]::-moz-range-thumb:hover {
       transform: scale(1.2);
-      background: #2563EB;
+      background: #6AA8D6;
+    }
+    
+    .slider-range {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+    }
+    
+    .cost-breakdown {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .cost-row:last-child {
+      border-bottom: none;
+      padding-top: 0.5rem;
+      padding-bottom: 0;
+    }
+    
+    .cost-row .label {
+      color: #475569;
+      font-weight: 500;
+    }
+    
+    .cost-row .value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .cost-row.total .label {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    
+    .cost-row.total .value {
+      font-size: 3rem;
+      color: #7CB9E8;
+    }
+    
+    .cost-note {
+      font-size: 0.875rem;
+      color: #64748b;
+      text-align: center;
+      padding-top: 0.5rem;
+    }
+    
+    .value-props {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+    
+    .value-prop {
+      text-align: center;
+      padding: 1rem;
+      background: #E8F4F8;
+      border-radius: 0.75rem;
+    }
+    
+    .value-prop .number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #7CB9E8;
+      margin-bottom: 0.25rem;
+    }
+    
+    .value-prop .text {
+      font-size: 0.875rem;
+      color: #475569;
+      font-weight: 500;
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 5rem 1.5rem;
+      background: #0f172a;
+      color: white;
+    }
+    
+    .features .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    .features h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    
+    .feature {
+      text-align: center;
+    }
+    
+    .feature h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    
+    .feature p {
+      color: #94a3b8;
+    }
+    
+    /* CTA Section */
+    .cta {
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    
+    .cta .container {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+    
+    .cta h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta p {
+      font-size: 1.25rem;
+      color: #475569;
+      margin-bottom: 2rem;
+    }
+    
+    .cta a {
+      box-shadow: 0 25px 50px -12px rgba(124, 185, 232, 0.4);
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: white;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    
+    footer .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    
+    footer img {
+      height: 2rem;
+      margin: 0 auto 1rem;
+      filter: brightness(0) invert(1);
+    }
+    
+    footer p {
+      color: #94a3b8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+      }
+      
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      
+      .hero p {
+        font-size: 1.125rem;
+      }
+      
+      .how-it-works h2, .features h2, .cta h2 {
+        font-size: 2rem;
+      }
+      
+      .calculator-header h2 {
+        font-size: 1.5rem;
+      }
+      
+      .value-props {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -98,7 +609,7 @@
   <script type="text/babel">
     const { useState } = React;
 
-    // Lucide React icon components (inline SVG)
+    // Icon components
     const Box = ({ className }) => (
       <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -163,126 +674,109 @@
       };
 
       return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+        <div>
           {/* Navigation */}
-          <nav className="fixed top-0 left-0 right-0 z-50 glass-card">
-            <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <nav className="glass-card">
+            <div className="container">
               <img 
                 src="Boxit_logo.png" 
                 alt="Box It Logo" 
-                className="h-10 opacity-0 animate-fade-in"
+                className="animate-fade-in"
               />
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-medium transition-all hover:scale-105 opacity-0 animate-fade-in delay-200">
+              <a 
+                href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
+                className="btn btn-primary animate-fade-in delay-200"
+              >
                 Get Started
-              </button>
+              </a>
             </div>
           </nav>
 
           {/* Hero Section */}
-          <section className="pt-32 pb-20 px-6">
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
-                <h1 className="headline text-6xl lg:text-7xl font-bold text-slate-900 leading-tight opacity-0 animate-slide-in">
+          <section className="hero">
+            <div className="container">
+              <div className="hero-content">
+                <h1 className="headline animate-slide-in">
                   Storage by the box.
-                  <span className="text-blue-500"> Simple as that.</span>
+                  <span className="accent"> Simple as that.</span>
                 </h1>
                 
-                <p className="text-xl text-slate-600 leading-relaxed opacity-0 animate-slide-in delay-100">
+                <p className="animate-slide-in delay-100">
                   Stop paying for empty space. Store only what you need with Box It's 
                   revolutionary by-the-box storage service.
                 </p>
                 
-                <div className="flex flex-wrap gap-4 opacity-0 animate-slide-in delay-200">
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-blue-500/30">
-                    Calculate Your Cost
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                  <button className="bg-white hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-lg">
+                <div className="hero-buttons animate-slide-in delay-200">
+                  <a 
+                    href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
+                    className="btn btn-lg btn-primary"
+                  >
+                    Get Started Today
+                    <ArrowRight />
+                  </a>
+                  <button className="btn btn-lg btn-white">
                     How It Works
                   </button>
                 </div>
               </div>
               
-              <div className="relative opacity-0 animate-fade-in delay-300">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 rounded-3xl blur-3xl opacity-20 animate-float"></div>
+              <div className="hero-image animate-fade-in delay-300">
+                <div className="hero-glow animate-float"></div>
                 <img 
                   src="Boxes.png" 
                   alt="Storage Boxes" 
-                  className="relative rounded-3xl shadow-2xl"
                 />
               </div>
             </div>
           </section>
 
           {/* How It Works */}
-          <section className="py-20 px-6 bg-white/50">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="headline text-5xl font-bold text-center text-slate-900 mb-16">
-                Three simple steps
-              </h2>
+          <section className="how-it-works">
+            <div className="container">
+              <h2 className="headline">Three simple steps</h2>
               
-              <div className="grid md:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: Box,
-                    title: "Pack Your Boxes",
-                    description: "Use your own boxes. Pack whatever you want to store. We provide QR-coded labels for each box.",
-                    color: "blue"
-                  },
-                  {
-                    icon: Truck,
-                    title: "We Pick Up",
-                    description: "Schedule a pickup time. Our team comes to you and transports your boxes to our secure facility.",
-                    color: "indigo"
-                  },
-                  {
-                    icon: QrCode,
-                    title: "Retrieve Anytime",
-                    description: "Need something? Request delivery through our app. We'll bring your boxes right back to your door.",
-                    color: "violet"
-                  }
-                ].map((step, i) => (
-                  <div 
-                    key={i}
-                    className="glass-card rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 opacity-0 animate-slide-in"
-                    style={{ animationDelay: `${0.4 + i * 0.1}s` }}
-                  >
-                    <div className={`w-16 h-16 bg-${step.color}-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
-                      <step.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                      {step.title}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {step.description}
-                    </p>
+              <div className="steps-grid">
+                <div className="step-card glass-card animate-slide-in delay-400">
+                  <div className="step-icon" style={{ background: '#7CB9E8' }}>
+                    <Box />
                   </div>
-                ))}
+                  <h3 className="headline">Pack Your Boxes</h3>
+                  <p>Use your own boxes. Pack whatever you want to store. We provide QR-coded labels for each box.</p>
+                </div>
+                
+                <div className="step-card glass-card animate-slide-in delay-500">
+                  <div className="step-icon" style={{ background: '#9DB4D5' }}>
+                    <Truck />
+                  </div>
+                  <h3 className="headline">We Pick Up</h3>
+                  <p>Schedule a pickup time. Our team comes to you and transports your boxes to our secure facility.</p>
+                </div>
+                
+                <div className="step-card glass-card animate-slide-in delay-600">
+                  <div className="step-icon" style={{ background: '#C8A8E8' }}>
+                    <QrCode />
+                  </div>
+                  <h3 className="headline">Retrieve Anytime</h3>
+                  <p>Need something? Request delivery through our app. We'll bring your boxes right back to your door.</p>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Cost Calculator */}
-          <section className="py-20 px-6">
-            <div className="max-w-4xl mx-auto">
-              <div className="glass-card rounded-3xl p-12 shadow-2xl">
-                <div className="flex items-center gap-3 mb-8">
-                  <Calculator className="w-8 h-8 text-blue-500" />
-                  <h2 className="headline text-4xl font-bold text-slate-900">
-                    Estimate Your Monthly Cost
-                  </h2>
+          <section className="calculator">
+            <div className="container">
+              <div className="calculator-card glass-card">
+                <div className="calculator-header">
+                  <Calculator />
+                  <h2 className="headline">Estimate Your Monthly Cost</h2>
                 </div>
                 
-                <div className="space-y-8">
-                  {/* Box Count Slider */}
-                  <div>
-                    <div className="flex justify-between items-center mb-4">
-                      <label className="text-lg font-semibold text-slate-700">
-                        Number of Boxes
-                      </label>
-                      <span className="headline text-3xl font-bold text-blue-500">
-                        {boxCount}
-                      </span>
+                <div className="calculator-content">
+                  <div className="slider-section">
+                    <div className="slider-label">
+                      <label>Number of Boxes</label>
+                      <span className="headline count">{boxCount}</span>
                     </div>
                     <input
                       type="range"
@@ -290,125 +784,107 @@
                       max="25"
                       value={boxCount}
                       onChange={(e) => setBoxCount(Number(e.target.value))}
-                      className="w-full h-3 bg-slate-200 rounded-full appearance-none cursor-pointer"
                     />
-                    <div className="flex justify-between text-sm text-slate-500 mt-2">
+                    <div className="slider-range">
                       <span>1 box</span>
                       <span>25 boxes</span>
                     </div>
                   </div>
 
-                  {/* Cost Breakdown */}
-                  <div className="bg-slate-50 rounded-2xl p-6 space-y-4">
-                    <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-                      <span className="text-slate-600 font-medium">Monthly Membership</span>
-                      <span className="text-2xl font-bold text-slate-900">
-                        ${MONTHLY_MEMBERSHIP.toFixed(2)}
-                      </span>
+                  <div className="cost-breakdown">
+                    <div className="cost-row">
+                      <span className="label">Monthly Membership</span>
+                      <span className="value headline">${MONTHLY_MEMBERSHIP.toFixed(2)}</span>
                     </div>
                     
-                    <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-                      <span className="text-slate-600 font-medium">
-                        Storage ({boxCount} boxes × ${PRICE_PER_BOX.toFixed(0)})
-                      </span>
-                      <span className="text-2xl font-bold text-slate-900">
-                        ${calculateBoxCost()}
-                      </span>
+                    <div className="cost-row">
+                      <span className="label">Storage ({boxCount} boxes × ${PRICE_PER_BOX.toFixed(0)})</span>
+                      <span className="value headline">${calculateBoxCost()}</span>
                     </div>
                     
-                    <div className="flex justify-between items-center pt-2">
-                      <span className="headline text-xl font-bold text-slate-900">
-                        Total Monthly Cost
-                      </span>
-                      <span className="headline text-5xl font-bold text-blue-500">
-                        ${calculateTotal()}
-                      </span>
+                    <div className="cost-row total">
+                      <span className="label headline">Total Monthly Cost</span>
+                      <span className="value headline">${calculateTotal()}</span>
                     </div>
                     
-                    <p className="text-sm text-slate-500 text-center pt-2">
-                      * 6-month minimum commitment required
-                    </p>
+                    <p className="cost-note">* 6-month minimum commitment required</p>
                   </div>
 
-                  {/* Value Props */}
-                  <div className="grid sm:grid-cols-3 gap-4 pt-4">
-                    {[
-                      { label: "Per Box", value: `$${PRICE_PER_BOX.toFixed(0)}` },
-                      { label: "Membership", value: `$${MONTHLY_MEMBERSHIP.toFixed(0)}` },
-                      { label: "Minimum", value: "6 Months" }
-                    ].map((item, i) => (
-                      <div key={i} className="text-center p-4 bg-blue-50 rounded-xl">
-                        <div className="headline text-2xl font-bold text-blue-500 mb-1">
-                          {item.value}
-                        </div>
-                        <div className="text-sm text-slate-600 font-medium">
-                          {item.label}
-                        </div>
-                      </div>
-                    ))}
+                  <div className="value-props">
+                    <div className="value-prop">
+                      <div className="number headline">${PRICE_PER_BOX.toFixed(0)}</div>
+                      <div className="text">Per Box</div>
+                    </div>
+                    <div className="value-prop">
+                      <div className="number headline">${MONTHLY_MEMBERSHIP.toFixed(0)}</div>
+                      <div className="text">Membership</div>
+                    </div>
+                    <div className="value-prop">
+                      <div className="number headline">6 Months</div>
+                      <div className="text">Minimum</div>
+                    </div>
                   </div>
 
-                  <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-blue-500/30">
+                  <a 
+                    href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
+                    className="btn btn-lg btn-primary" 
+                    style={{ width: '100%', textAlign: 'center' }}
+                  >
                     Get Started with {boxCount} {boxCount === 1 ? 'Box' : 'Boxes'}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Features */}
-          <section className="py-20 px-6 bg-slate-900 text-white">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="headline text-5xl font-bold text-center mb-16">
-                Why choose Box It?
-              </h2>
+          <section className="features">
+            <div className="container">
+              <h2 className="headline">Why choose Box It?</h2>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  { title: "No Hidden Fees", desc: "What you see is what you pay. Period." },
-                  { title: "Same-Day Delivery", desc: "Need it fast? We've got you covered." },
-                  { title: "Secure Storage", desc: "Climate-controlled, 24/7 monitored facilities." },
-                  { title: "Easy Tracking", desc: "Know exactly what's in each box with our app." }
-                ].map((feature, i) => (
-                  <div key={i} className="text-center">
-                    <h3 className="headline text-2xl font-bold mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="text-slate-400">
-                      {feature.desc}
-                    </p>
-                  </div>
-                ))}
+              <div className="features-grid">
+                <div className="feature">
+                  <h3 className="headline">No Hidden Fees</h3>
+                  <p>What you see is what you pay. Period.</p>
+                </div>
+                <div className="feature">
+                  <h3 className="headline">Same-Day Delivery</h3>
+                  <p>Need it fast? We've got you covered.</p>
+                </div>
+                <div className="feature">
+                  <h3 className="headline">Secure Storage</h3>
+                  <p>Climate-controlled, 24/7 monitored facilities.</p>
+                </div>
+                <div className="feature">
+                  <h3 className="headline">Easy Tracking</h3>
+                  <p>Know exactly what's in each box with our app.</p>
+                </div>
               </div>
             </div>
           </section>
 
           {/* CTA */}
-          <section className="py-20 px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="headline text-5xl font-bold text-slate-900 mb-6">
-                Ready to simplify your storage?
-              </h2>
-              <p className="text-xl text-slate-600 mb-8">
-                Join hundreds of happy customers who've ditched traditional storage units.
-              </p>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white px-12 py-5 rounded-full font-bold text-xl transition-all hover:scale-105 shadow-2xl shadow-blue-500/40">
+          <section className="cta">
+            <div className="container">
+              <h2 className="headline">Ready to simplify your storage?</h2>
+              <p>Join hundreds of happy customers who've ditched traditional storage units.</p>
+              <a 
+                href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
+                className="btn btn-xl btn-primary"
+              >
                 Start Storing Today
-              </button>
+              </a>
             </div>
           </section>
 
           {/* Footer */}
-          <footer className="bg-slate-900 text-white py-12 px-6">
-            <div className="max-w-7xl mx-auto text-center">
+          <footer>
+            <div className="container">
               <img 
                 src="Boxit_logo.png" 
                 alt="Box It Logo" 
-                className="h-8 mx-auto mb-4 brightness-0 invert"
               />
-              <p className="text-slate-400">
-                © 2026 Box It Storage. Storage made simple.
-              </p>
+              <p>© 2026 Box It Storage. Storage made simple.</p>
             </div>
           </footer>
         </div>

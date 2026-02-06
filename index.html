@@ -12,6 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
   
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -234,7 +238,7 @@
     
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
     }
     
@@ -510,6 +514,129 @@
       color: #94a3b8;
     }
     
+    .how-it-works .section-subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+    }
+
+    .step-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: #7CB9E8;
+      color: white;
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Library Callout */
+    .library-callout {
+      padding: 4rem 1.5rem;
+      background: #E8F4F8;
+    }
+
+    .library-callout .container {
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .library-callout h2 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1.5rem;
+    }
+
+    .library-callout p {
+      font-size: 1.125rem;
+      color: #475569;
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .library-callout p + p {
+      margin-top: 1rem;
+    }
+
+    /* Perfect For Section */
+    .perfect-for {
+      padding: 5rem 1.5rem;
+    }
+
+    .perfect-for .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .perfect-for h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .perfect-for .section-subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .audience-card {
+      padding: 2rem;
+      border-radius: 1rem;
+      background: white;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s;
+    }
+
+    .audience-card:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .audience-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.75rem;
+    }
+
+    .audience-card h3 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .audience-card p {
+      color: #475569;
+      line-height: 1.625;
+    }
+
     /* CTA Section */
     .cta {
       padding: 5rem 1.5rem;
@@ -574,31 +701,142 @@
       .features-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
     @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 1rem 3rem;
+      }
+
       .hero h1 {
         font-size: 2.25rem;
       }
-      
+
       .hero p {
         font-size: 1.125rem;
       }
-      
-      .how-it-works h2, .features h2, .cta h2 {
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons a, .hero-buttons button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .how-it-works h2, .features h2, .cta h2, .perfect-for h2 {
         font-size: 2rem;
       }
-      
+
+      .library-callout h2 {
+        font-size: 1.75rem;
+      }
+
+      .library-callout {
+        padding: 3rem 1rem;
+      }
+
+      .perfect-for .section-subtitle,
+      .how-it-works .section-subtitle {
+        font-size: 1rem;
+      }
+
+      .calculator-card {
+        padding: 1.5rem;
+      }
+
       .calculator-header h2 {
         font-size: 1.5rem;
       }
-      
+
+      .cost-row.total .value {
+        font-size: 2rem;
+      }
+
       .value-props {
         grid-template-columns: 1fr;
       }
-      
+
       .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .cta h2 {
+        font-size: 1.75rem;
+      }
+
+      .cta p {
+        font-size: 1rem;
+      }
+
+      nav .container {
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 5.5rem 0.75rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .how-it-works, .calculator, .features, .cta, .perfect-for {
+        padding: 3rem 0.75rem;
+      }
+
+      .library-callout {
+        padding: 2.5rem 0.75rem;
+      }
+
+      .how-it-works h2, .features h2, .cta h2, .perfect-for h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .library-callout h2 {
+        font-size: 1.375rem;
+      }
+
+      .calculator-card {
+        padding: 1rem;
+      }
+
+      .calculator-header h2 {
+        font-size: 1.25rem;
+      }
+
+      .cost-row.total .value {
+        font-size: 1.75rem;
+      }
+
+      .cost-row .value {
+        font-size: 1.125rem;
+      }
+
+      .step-card {
+        padding: 1.5rem;
+      }
+
+      .btn-xl {
+        padding: 1rem 2rem;
+        font-size: 1.05rem;
+      }
+
+      footer {
+        padding: 2rem 0.75rem;
       }
     }
   </style>
@@ -652,6 +890,28 @@
       </svg>
     );
 
+    const UserPlus = ({ className }) => (
+      <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="8.5" cy="7" r="4"></circle>
+        <line x1="20" y1="8" x2="20" y2="14"></line>
+        <line x1="23" y1="11" x2="17" y2="11"></line>
+      </svg>
+    );
+
+    const Mail = ({ className }) => (
+      <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    );
+
+    const Shield = ({ className }) => (
+      <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+    );
+
     const ArrowRight = ({ className }) => (
       <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -678,12 +938,15 @@
           {/* Navigation */}
           <nav className="glass-card">
             <div className="container">
-              <img 
-                src="Boxit_logo.png" 
-                alt="Box It Logo" 
-                className="animate-fade-in"
-              />
-              <a 
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }}>
+                <img
+                  src="Boxit_logo.png"
+                  alt="Box It Logo"
+                  className="animate-fade-in"
+                  style={{cursor: 'pointer'}}
+                />
+              </a>
+              <a
                 href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
                 className="btn btn-primary animate-fade-in delay-200"
               >
@@ -700,10 +963,11 @@
                   Storage by the box.
                   <span className="accent"> Simple as that.</span>
                 </h1>
-                
+
                 <p className="animate-slide-in delay-100">
-                  Stop paying for empty space. Store only what you need with Box It's 
-                  revolutionary by-the-box storage service.
+                  No more renting a big storage unit for a few boxes of holiday decorations.
+                  With Box It, you only store — and only pay for — what you actually need.
+                  We pick up, we store, and we bring it back when you want it.
                 </p>
                 
                 <div className="hero-buttons animate-slide-in delay-200">
@@ -714,9 +978,9 @@
                     Get Started Today
                     <ArrowRight />
                   </a>
-                  <button className="btn btn-lg btn-white">
+                  <a href="#how-it-works" className="btn btn-lg btn-white">
                     How It Works
-                  </button>
+                  </a>
                 </div>
               </div>
               
@@ -731,40 +995,155 @@
           </section>
 
           {/* How It Works */}
-          <section className="how-it-works">
+          <section className="how-it-works" id="how-it-works">
             <div className="container">
-              <h2 className="headline">Three simple steps</h2>
-              
+              <h2 className="headline">How It Works</h2>
+              <p className="section-subtitle">
+                No trucks to rent. No storage units to visit. We handle the heavy lifting so you don't have to.
+              </p>
+
               <div className="steps-grid">
-                <div className="step-card glass-card animate-slide-in delay-400">
+                <div className="step-card glass-card animate-slide-in delay-200">
+                  <div className="step-number-badge">1</div>
                   <div className="step-icon" style={{ background: '#7CB9E8' }}>
+                    <UserPlus />
+                  </div>
+                  <h3 className="headline">Sign Up</h3>
+                  <p>
+                    Create your account online — it only takes a couple of minutes.
+                    Just your name, address, and email. No credit card is required
+                    until your first pickup is scheduled.
+                  </p>
+                </div>
+
+                <div className="step-card glass-card animate-slide-in delay-300">
+                  <div className="step-number-badge">2</div>
+                  <div className="step-icon" style={{ background: '#9DB4D5' }}>
+                    <Mail />
+                  </div>
+                  <h3 className="headline">We Send You Labels</h3>
+                  <p>
+                    We mail a set of pre-printed labels with unique QR codes right
+                    to your door. Stick one on each box you plan to store. These
+                    codes let you track what's in every box at any time.
+                  </p>
+                </div>
+
+                <div className="step-card glass-card animate-slide-in delay-400">
+                  <div className="step-number-badge">3</div>
+                  <div className="step-icon" style={{ background: '#C8A8E8' }}>
                     <Box />
                   </div>
                   <h3 className="headline">Pack Your Boxes</h3>
-                  <p>Use your own boxes. Pack whatever you want to store. We provide QR-coded labels for each box.</p>
+                  <p>
+                    Use any sturdy boxes you already have at home. Pack your items,
+                    attach a label, and write a short note about what's inside.
+                    Pack on your own schedule — there's no rush.
+                  </p>
                 </div>
-                
+
                 <div className="step-card glass-card animate-slide-in delay-500">
-                  <div className="step-icon" style={{ background: '#9DB4D5' }}>
+                  <div className="step-number-badge">4</div>
+                  <div className="step-icon" style={{ background: '#7CB9E8' }}>
                     <Truck />
                   </div>
-                  <h3 className="headline">We Pick Up</h3>
-                  <p>Schedule a pickup time. Our team comes to you and transports your boxes to our secure facility.</p>
+                  <h3 className="headline">We Pick Up &amp; Store</h3>
+                  <p>
+                    When you're ready, schedule a pickup. Our team comes to your
+                    door, scans each labeled box, and takes everything to our secure,
+                    climate-controlled facility. Need a box back? Just request it
+                    and we'll deliver it right to you.
+                  </p>
                 </div>
-                
-                <div className="step-card glass-card animate-slide-in delay-600">
-                  <div className="step-icon" style={{ background: '#C8A8E8' }}>
-                    <QrCode />
+              </div>
+            </div>
+          </section>
+
+          {/* Library Analogy */}
+          <section className="library-callout">
+            <div className="container">
+              <h2 className="headline">Think of it like a library card — but for your stuff.</h2>
+              <p>
+                Once you're a Box It member, you can add or remove boxes whenever you
+                want. Need to store five more boxes before the holidays? Add them.
+                Want to pull out your camping gear for the summer? We'll bring it to
+                you. No appointments, no paperwork, no hassle.
+              </p>
+              <p>
+                You're always in control of what's stored and what comes home.
+                It's your stuff — we just keep it safe until you need it.
+              </p>
+            </div>
+          </section>
+
+          {/* Who Box It Is Perfect For */}
+          <section className="perfect-for" id="perfect-for">
+            <div className="container">
+              <h2 className="headline">Who Is Box It For?</h2>
+              <p className="section-subtitle">
+                If you have things you want to keep but don't have room for right now,
+                Box It was built for you.
+              </p>
+
+              <div className="audience-grid">
+                <div className="audience-card">
+                  <div className="audience-icon" style={{background: '#E8F4F8'}}>
+                    <img src="https://placehold.co/56x56/E8F4F8/7CB9E8?text=%F0%9F%8F%A0" alt="Family home" style={{width: '100%', height: '100%', borderRadius: '0.75rem'}} />
                   </div>
-                  <h3 className="headline">Retrieve Anytime</h3>
-                  <p>Need something? Request delivery through our app. We'll bring your boxes right back to your door.</p>
+                  <h3 className="headline">Families with Kids</h3>
+                  <p>
+                    Kids outgrow things fast — clothes, toys, strollers, car seats.
+                    And then there are the holiday decorations, seasonal sports gear,
+                    and school projects you can't throw away. Box It gives you your
+                    closets and garage back without giving up the things your family
+                    still needs.
+                  </p>
+                </div>
+
+                <div className="audience-card">
+                  <div className="audience-icon" style={{background: '#F0E8F8'}}>
+                    <img src="https://placehold.co/56x56/F0E8F8/9B72CF?text=%F0%9F%8E%93" alt="College student" style={{width: '100%', height: '100%', borderRadius: '0.75rem'}} />
+                  </div>
+                  <h3 className="headline">College Students</h3>
+                  <p>
+                    Going home for the summer? Moving between dorms? Don't haul
+                    everything across the state — or throw it away and buy it again
+                    next year. Box it up, we'll store it, and we'll deliver it right
+                    to your new place when you're ready.
+                  </p>
+                </div>
+
+                <div className="audience-card">
+                  <div className="audience-icon" style={{background: '#E8F8EE'}}>
+                    <img src="https://placehold.co/56x56/E8F8EE/4CAF50?text=%F0%9F%92%BC" alt="Small business" style={{width: '100%', height: '100%', borderRadius: '0.75rem'}} />
+                  </div>
+                  <h3 className="headline">Small Businesses</h3>
+                  <p>
+                    Extra inventory, old files, seasonal displays, trade show
+                    materials — they pile up fast. Box It keeps your workspace clear
+                    and your important items safe, without the cost of renting
+                    warehouse space. Add or remove boxes as your business needs change.
+                  </p>
+                </div>
+
+                <div className="audience-card">
+                  <div className="audience-icon" style={{background: '#FFF8E8'}}>
+                    <img src="https://placehold.co/56x56/FFF8E8/E8A317?text=%E2%9C%A8" alt="Decluttering" style={{width: '100%', height: '100%', borderRadius: '0.75rem'}} />
+                  </div>
+                  <h3 className="headline">Downsizing &amp; Decluttering</h3>
+                  <p>
+                    Making space in your home doesn't mean giving everything away.
+                    Keep the photo albums, the keepsakes, and the things that matter.
+                    Box It stores them safely so you can enjoy a tidier home today
+                    and get anything back whenever you want it.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Cost Calculator */}
-          <section className="calculator">
+          <section className="calculator" id="pricing">
             <div className="container">
               <div className="calculator-card glass-card">
                 <div className="calculator-header">
@@ -840,24 +1219,24 @@
           {/* Features */}
           <section className="features">
             <div className="container">
-              <h2 className="headline">Why choose Box It?</h2>
-              
+              <h2 className="headline">Your Stuff Is in Good Hands</h2>
+
               <div className="features-grid">
                 <div className="feature">
                   <h3 className="headline">No Hidden Fees</h3>
-                  <p>What you see is what you pay. Period.</p>
+                  <p>$25 membership + $15 per box per month. That's it. No surprise charges, no fine print, no "admin fees." What we quote is what you pay.</p>
                 </div>
                 <div className="feature">
-                  <h3 className="headline">Same-Day Delivery</h3>
-                  <p>Need it fast? We've got you covered.</p>
+                  <h3 className="headline">Secure &amp; Climate-Controlled</h3>
+                  <p>Your boxes are stored in a clean, climate-controlled facility with 24/7 security monitoring. We treat your things the way you would.</p>
                 </div>
                 <div className="feature">
-                  <h3 className="headline">Secure Storage</h3>
-                  <p>Climate-controlled, 24/7 monitored facilities.</p>
+                  <h3 className="headline">Delivery to Your Door</h3>
+                  <p>Need a box back? Request it and we'll bring it right to you. No driving to a storage unit across town. No loading and unloading.</p>
                 </div>
                 <div className="feature">
-                  <h3 className="headline">Easy Tracking</h3>
-                  <p>Know exactly what's in each box with our app.</p>
+                  <h3 className="headline">Know What's in Every Box</h3>
+                  <p>Each box has a unique QR label. You'll always know exactly what's stored in each one — no more guessing or digging through a pile.</p>
                 </div>
               </div>
             </div>
@@ -866,13 +1245,16 @@
           {/* CTA */}
           <section className="cta">
             <div className="container">
-              <h2 className="headline">Ready to simplify your storage?</h2>
-              <p>Join hundreds of happy customers who've ditched traditional storage units.</p>
-              <a 
+              <h2 className="headline">Ready to get your space back?</h2>
+              <p>
+                Signing up is free and takes two minutes. No commitment until you
+                schedule your first pickup. See for yourself how simple storage can be.
+              </p>
+              <a
                 href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
                 className="btn btn-xl btn-primary"
               >
-                Start Storing Today
+                Create Your Free Account
               </a>
             </div>
           </section>
@@ -880,10 +1262,13 @@
           {/* Footer */}
           <footer>
             <div className="container">
-              <img 
-                src="Boxit_logo.png" 
-                alt="Box It Logo" 
-              />
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }} style={{display:'block'}}>
+                <img
+                  src="Boxit_logo.png"
+                  alt="Box It Logo"
+                  style={{cursor: 'pointer'}}
+                />
+              </a>
               <p>© 2026 Box It Storage. Storage made simple.</p>
             </div>
           </footer>

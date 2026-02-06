@@ -12,6 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&display=swap" rel="stylesheet">
   
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -577,28 +581,114 @@
     }
     
     @media (max-width: 768px) {
+      .hero {
+        padding: 6rem 1rem 3rem;
+      }
+
       .hero h1 {
         font-size: 2.25rem;
       }
-      
+
       .hero p {
         font-size: 1.125rem;
       }
-      
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons a, .hero-buttons button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+
       .how-it-works h2, .features h2, .cta h2 {
         font-size: 2rem;
       }
-      
+
+      .calculator-card {
+        padding: 1.5rem;
+      }
+
       .calculator-header h2 {
         font-size: 1.5rem;
       }
-      
+
+      .cost-row.total .value {
+        font-size: 2rem;
+      }
+
       .value-props {
         grid-template-columns: 1fr;
       }
-      
+
       .features-grid {
         grid-template-columns: 1fr;
+      }
+
+      .cta h2 {
+        font-size: 1.75rem;
+      }
+
+      .cta p {
+        font-size: 1rem;
+      }
+
+      nav .container {
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 5.5rem 0.75rem 2rem;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .how-it-works, .calculator, .features, .cta {
+        padding: 3rem 0.75rem;
+      }
+
+      .how-it-works h2, .features h2, .cta h2 {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .calculator-card {
+        padding: 1rem;
+      }
+
+      .calculator-header h2 {
+        font-size: 1.25rem;
+      }
+
+      .cost-row.total .value {
+        font-size: 1.75rem;
+      }
+
+      .cost-row .value {
+        font-size: 1.125rem;
+      }
+
+      .step-card {
+        padding: 1.5rem;
+      }
+
+      .btn-xl {
+        padding: 1rem 2rem;
+        font-size: 1.05rem;
+      }
+
+      footer {
+        padding: 2rem 0.75rem;
       }
     }
   </style>
@@ -678,12 +768,15 @@
           {/* Navigation */}
           <nav className="glass-card">
             <div className="container">
-              <img 
-                src="Boxit_logo.png" 
-                alt="Box It Logo" 
-                className="animate-fade-in"
-              />
-              <a 
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }}>
+                <img
+                  src="Boxit_logo.png"
+                  alt="Box It Logo"
+                  className="animate-fade-in"
+                  style={{cursor: 'pointer'}}
+                />
+              </a>
+              <a
                 href="https://buy.stripe.com/bJe4gy9tm657b8rblE9fW00"
                 className="btn btn-primary animate-fade-in delay-200"
               >
@@ -714,9 +807,9 @@
                     Get Started Today
                     <ArrowRight />
                   </a>
-                  <button className="btn btn-lg btn-white">
+                  <a href="#how-it-works" className="btn btn-lg btn-white">
                     How It Works
-                  </button>
+                  </a>
                 </div>
               </div>
               
@@ -731,7 +824,7 @@
           </section>
 
           {/* How It Works */}
-          <section className="how-it-works">
+          <section className="how-it-works" id="how-it-works">
             <div className="container">
               <h2 className="headline">Three simple steps</h2>
               
@@ -764,7 +857,7 @@
           </section>
 
           {/* Cost Calculator */}
-          <section className="calculator">
+          <section className="calculator" id="pricing">
             <div className="container">
               <div className="calculator-card glass-card">
                 <div className="calculator-header">
@@ -880,10 +973,13 @@
           {/* Footer */}
           <footer>
             <div className="container">
-              <img 
-                src="Boxit_logo.png" 
-                alt="Box It Logo" 
-              />
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }} style={{display:'block'}}>
+                <img
+                  src="Boxit_logo.png"
+                  alt="Box It Logo"
+                  style={{cursor: 'pointer'}}
+                />
+              </a>
               <p>© 2026 Box It Storage. Storage made simple.</p>
             </div>
           </footer>

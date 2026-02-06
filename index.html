@@ -637,6 +637,197 @@
       line-height: 1.625;
     }
 
+    /* Comparison Table */
+    .comparison {
+      padding: 5rem 1.5rem;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .comparison .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .comparison h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .comparison .section-subtitle {
+      text-align: center;
+      color: #475569;
+      font-size: 1.125rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      line-height: 1.75;
+    }
+
+    .comparison-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 1rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      min-width: 640px;
+    }
+
+    .comparison-table thead th {
+      padding: 1.25rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.9375rem;
+      border-bottom: 2px solid #e2e8f0;
+      color: #0f172a;
+      background: #f8fafc;
+      white-space: nowrap;
+    }
+
+    .comparison-table thead th:first-child {
+      border-top-left-radius: 1rem;
+    }
+
+    .comparison-table thead th:last-child {
+      border-top-right-radius: 1rem;
+    }
+
+    .comparison-table thead th.highlight {
+      background: #7CB9E8;
+      color: white;
+    }
+
+    .comparison-table tbody td {
+      padding: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 0.9375rem;
+      color: #334155;
+      vertical-align: top;
+    }
+
+    .comparison-table tbody td.highlight {
+      background: rgba(124, 185, 232, 0.06);
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table .row-label {
+      font-weight: 600;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    .comparison-table .check {
+      color: #10B981;
+      font-weight: 700;
+    }
+
+    .comparison-table .x-mark {
+      color: #94a3b8;
+    }
+
+    .comparison-note {
+      text-align: center;
+      font-size: 0.8125rem;
+      color: #94a3b8;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 5rem 1.5rem;
+    }
+
+    .faq .container {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .faq h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      color: #0f172a;
+      margin-bottom: 3rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #0f172a;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: #7CB9E8;
+    }
+
+    .faq-toggle {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: #7CB9E8;
+      transition: transform 0.2s;
+      font-weight: 400;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-answer.open {
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      padding: 0 0 1.25rem;
+      color: #475569;
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
     /* CTA Section */
     .cta {
       padding: 5rem 1.5rem;
@@ -730,7 +921,7 @@
         text-align: center;
       }
 
-      .how-it-works h2, .features h2, .cta h2, .perfect-for h2 {
+      .how-it-works h2, .features h2, .cta h2, .perfect-for h2, .comparison h2, .faq h2 {
         font-size: 2rem;
       }
 
@@ -743,7 +934,12 @@
       }
 
       .perfect-for .section-subtitle,
-      .how-it-works .section-subtitle {
+      .how-it-works .section-subtitle,
+      .comparison .section-subtitle {
+        font-size: 1rem;
+      }
+
+      .faq-question {
         font-size: 1rem;
       }
 
@@ -793,7 +989,7 @@
         font-size: 1rem;
       }
 
-      .how-it-works, .calculator, .features, .cta, .perfect-for {
+      .how-it-works, .calculator, .features, .cta, .perfect-for, .comparison, .faq {
         padding: 3rem 0.75rem;
       }
 
@@ -801,13 +997,17 @@
         padding: 2.5rem 0.75rem;
       }
 
-      .how-it-works h2, .features h2, .cta h2, .perfect-for h2 {
+      .how-it-works h2, .features h2, .cta h2, .perfect-for h2, .comparison h2, .faq h2 {
         font-size: 1.5rem;
         margin-bottom: 2rem;
       }
 
       .library-callout h2 {
         font-size: 1.375rem;
+      }
+
+      .faq-question {
+        font-size: 0.9375rem;
       }
 
       .calculator-card {
@@ -1051,8 +1251,8 @@
                   <p>
                     When you're ready, schedule a pickup. Our team comes to your
                     door, scans each labeled box, and takes everything to our secure,
-                    climate-controlled facility. Need a box back? Just request it
-                    and we'll deliver it right to you.
+                    secure facility. Need a box back? Just request it
+                    and we'll deliver it to your door within 24 hours.
                   </p>
                 </div>
               </div>
@@ -1227,17 +1427,183 @@
                   <p>$25 membership + $15 per box per month. That's it. No surprise charges, no fine print, no "admin fees." What we quote is what you pay.</p>
                 </div>
                 <div className="feature">
-                  <h3 className="headline">Secure &amp; Climate-Controlled</h3>
-                  <p>Your boxes are stored in a clean, climate-controlled facility with 24/7 security monitoring. We treat your things the way you would.</p>
+                  <h3 className="headline">Secure Storage</h3>
+                  <p>Your boxes are stored in a clean, monitored facility with 24/7 security. We treat your things the way you would.</p>
                 </div>
                 <div className="feature">
-                  <h3 className="headline">Delivery to Your Door</h3>
-                  <p>Need a box back? Request it and we'll bring it right to you. No driving to a storage unit across town. No loading and unloading.</p>
+                  <h3 className="headline">24-Hour Delivery</h3>
+                  <p>Need a box back? Request it and we'll deliver it to your door within 24 hours. No driving to a storage unit across town. No loading and unloading.</p>
                 </div>
                 <div className="feature">
                   <h3 className="headline">Know What's in Every Box</h3>
                   <p>Each box has a unique QR label. You'll always know exactly what's stored in each one — no more guessing or digging through a pile.</p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Comparison Table */}
+          <section className="comparison" id="compare">
+            <div className="container">
+              <h2 className="headline">How Box It Compares</h2>
+              <p className="section-subtitle">
+                Traditional storage units charge you for a whole room, even if you only need
+                to store a few boxes. Here's how we stack up against other options in the East Bay.
+              </p>
+
+              <div className="comparison-table-wrap">
+                <table className="comparison-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th className="highlight">Box It</th>
+                      <th>Extra Space Storage</th>
+                      <th>StorQuest</th>
+                      <th>Clutter</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="row-label">Starts at</td>
+                      <td className="highlight">$40/mo</td>
+                      <td>~$69/mo</td>
+                      <td>~$59/mo</td>
+                      <td>~$94/mo</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">What you rent</td>
+                      <td className="highlight">Just the boxes you need</td>
+                      <td>A full storage unit</td>
+                      <td>A full storage unit</td>
+                      <td>A full storage unit</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Pickup &amp; delivery</td>
+                      <td className="highlight">Yes — $10 + $5/box</td>
+                      <td><span className="x-mark">No — you drive there</span></td>
+                      <td><span className="x-mark">No — you drive there</span></td>
+                      <td>Yes (fees apply)</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Pay only for what you store</td>
+                      <td className="highlight"><span className="check">Yes</span></td>
+                      <td><span className="x-mark">No</span></td>
+                      <td><span className="x-mark">No</span></td>
+                      <td><span className="x-mark">No</span></td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Delivery speed</td>
+                      <td className="highlight">Within 24 hours</td>
+                      <td><span className="x-mark">N/A — you drive there</span></td>
+                      <td><span className="x-mark">N/A — you drive there</span></td>
+                      <td>Scheduled appointment</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Delivery / checkout fee</td>
+                      <td className="highlight">$10 + $5/box</td>
+                      <td><span className="x-mark">N/A</span></td>
+                      <td><span className="x-mark">N/A</span></td>
+                      <td>Hourly rate</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Add/remove boxes anytime</td>
+                      <td className="highlight"><span className="check">Yes</span></td>
+                      <td><span className="x-mark">No — fixed unit size</span></td>
+                      <td><span className="x-mark">No — fixed unit size</span></td>
+                      <td>Limited</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">Onboarding / setup fee</td>
+                      <td className="highlight"><span className="check">None</span></td>
+                      <td>Varies</td>
+                      <td>$29 admin fee</td>
+                      <td>Up to $459</td>
+                    </tr>
+                    <tr>
+                      <td className="row-label">QR tracking per box</td>
+                      <td className="highlight"><span className="check">Yes</span></td>
+                      <td><span className="x-mark">No</span></td>
+                      <td><span className="x-mark">No</span></td>
+                      <td>Photo catalog</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p className="comparison-note">
+                Competitor pricing is approximate and based on publicly available rates for
+                the Berkeley/Oakland area as of early 2026. Prices may vary by location and
+                unit availability. Box It's $40/mo minimum = $25 membership + $15 for 1 box.
+              </p>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="faq" id="faq">
+            <div className="container">
+              <h2 className="headline">Frequently Asked Questions</h2>
+
+              <div className="faq-list">
+                {[
+                  {
+                    q: "Where is Box It available?",
+                    a: "We currently serve Berkeley, Oakland, Emeryville, and Alameda. We're a local East Bay company — not a faceless national chain. When you call us, you're talking to someone in your community. We're expanding soon, so if you're nearby, reach out and let us know you're interested."
+                  },
+                  {
+                    q: "Who's behind Box It?",
+                    a: "Box It is built by the same team behind Family Laundry. We've been serving the East Bay for years, and we started Box It because we saw how much people were overpaying for storage they didn't fully use. We bring the same reliability and personal service you'd expect from a local business."
+                  },
+                  {
+                    q: "How much does it cost?",
+                    a: "It's $25 per month for your membership, plus $15 per box per month. That's it. If you store just one box, your total is $40/month. Ten boxes? $175/month. There are no hidden fees, no surprise charges, and no admin costs to sign up."
+                  },
+                  {
+                    q: "What size are the boxes?",
+                    a: "Our standard box is 18\" x 18\" x 24\" — about the size of a large moving box. You can use your own boxes of a similar size or smaller. Each box can hold roughly 4 to 5 cubic feet of items."
+                  },
+                  {
+                    q: "How do I get my stuff back?",
+                    a: "Just let us know which box you need — you can call, email, or request it online. We'll deliver it to your door within 24 hours. Each delivery is a flat $10 plus $5 per box. No driving across town to a storage unit, no loading and unloading, no hassle."
+                  },
+                  {
+                    q: "Is my stuff safe?",
+                    a: "Absolutely. Your boxes are stored in a secure facility with 24/7 monitoring. Every box has a unique QR code so we always know exactly where it is. We treat your belongings the way we'd treat our own."
+                  },
+                  {
+                    q: "Can I add or remove boxes after I sign up?",
+                    a: "Yes — anytime. That's the whole point. Think of it like a library: once you're a member, you check boxes in and out as you need. Each pickup or delivery is a flat $10 plus $5 per box. Storing holiday decorations in November and want them back in December? No problem. Your monthly bill adjusts automatically."
+                  },
+                  {
+                    q: "Is there a long-term contract?",
+                    a: "We ask for a 6-month minimum commitment to keep things simple for everyone. After that, you can cancel anytime. No penalties, no fine print."
+                  },
+                  {
+                    q: "Do I need to be home for pickup and delivery?",
+                    a: "We work with you to schedule a time that fits your day. If you can't be there, just let us know where to leave the boxes or pick them up — we're flexible."
+                  }
+                ].map((item, i) => (
+                  <div className="faq-item" key={i}>
+                    <button
+                      className="faq-question"
+                      onClick={(e) => {
+                        const answer = e.currentTarget.nextElementSibling;
+                        const toggle = e.currentTarget.querySelector('.faq-toggle');
+                        const isOpen = answer.classList.contains('open');
+                        document.querySelectorAll('.faq-answer.open').forEach(a => a.classList.remove('open'));
+                        document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+                        if (!isOpen) {
+                          answer.classList.add('open');
+                          toggle.textContent = '\u2212';
+                        }
+                      }}
+                    >
+                      <span>{item.q}</span>
+                      <span className="faq-toggle">+</span>
+                    </button>
+                    <div className="faq-answer">
+                      <p>{item.a}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

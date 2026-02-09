@@ -16,7 +16,7 @@ This is a landing page for Box It Storage, a storage-by-the-box service. The sit
 ## Project Structure
 
 - `index.html` - Main landing page (single-page application)
-- `src/components/` - Contains Next.js components (Header.tsx) - likely for future migration
+- `src/components/` - Contains React/TypeScript components (Header.tsx) - appears to be for future Next.js migration, not currently used in production
 - `public/` - Static assets
 - `.github/workflows/` - CI/CD configuration
 - Images: `Boxit_logo.png`, `Boxes.png`, `Boxit wall.png` - project assets
@@ -59,7 +59,6 @@ This is a landing page for Box It Storage, a storage-by-the-box service. The sit
 1. **Local Testing**: Open `index.html` directly in a browser (no server needed for basic testing)
 2. **Jekyll Build**: Runs automatically via GitHub Actions on push to `main`
 3. **Deployment**: Automatic via GitHub Pages after successful Jekyll build
-4. **No Direct Git Operations**: Use the `report_progress` tool for commits
 
 ## Content Updates
 
